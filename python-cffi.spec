@@ -1,13 +1,14 @@
 #
 # Conditional build:
 %bcond_without	python2 # CPython 2.x module
-%bcond_with	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module (built from python3-cffi.spec)
 %bcond_without	doc	# Sphinx based documentation
 %bcond_without	tests	# unit tests
 #
 Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
+# keep 1.15.x here for python2 support
 Version:	1.15.1
 Release:	2
 License:	MIT
