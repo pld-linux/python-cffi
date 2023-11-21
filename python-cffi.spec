@@ -1,20 +1,20 @@
 #
 # Conditional build:
 %bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module
 %bcond_without	doc	# Sphinx based documentation
 %bcond_without	tests	# unit tests
 #
 Summary:	Foreign Function Interface for Python 2 calling C code
 Summary(pl.UTF-8):	Interfejs funkcji obcych (FFI) dla Pythona 2 wywołującego kod w C
 Name:		python-cffi
-Version:	1.16.0
-Release:	1
+Version:	1.15.1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cffi/
 Source0:	https://files.pythonhosted.org/packages/source/c/cffi/cffi-%{version}.tar.gz
-# Source0-md5:	0bcaed453da3004d0bea103038345c1e
+# Source0-md5:	f493860a6e98cd0c4178149568a6b4f6
 URL:		http://cffi.readthedocs.org/
 BuildRequires:	libffi-devel >= 3
 BuildRequires:	pkgconfig
@@ -105,7 +105,7 @@ Dokumentacja API modułu Pythona CFFI.
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTHONPATH=$(pwd):$(echo $(pwd)/build-2/lib.linux-*) \
-%{__python} -m pytest src/c testing
+%{__python} -m pytest c testing
 %endif
 %endif
 
@@ -115,7 +115,7 @@ PYTHONPATH=$(pwd):$(echo $(pwd)/build-2/lib.linux-*) \
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
 PYTHONPATH=$(pwd):$(echo $(pwd)/build-3/lib.linux-*) \
-%{__python3} -m pytest src/c testing
+%{__python3} -m pytest c testing
 %endif
 %endif
 
